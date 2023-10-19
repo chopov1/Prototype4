@@ -1,9 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Interactable : MonoBehaviour
 {
+    public enum InteractableState { unselected, selected}
+    InteractableState state;
+
     BoxCollider collider;
 
     Ray mouseWorldRay;
@@ -12,7 +16,9 @@ public class Interactable : MonoBehaviour
     GameObject mesh;
 
     Material HighlightMat;
-    
+
+    public UnityEvent<Vector3> OnClick;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -23,15 +29,39 @@ public class Interactable : MonoBehaviour
     void Update()
     {
         mouseWorldRay = Camera.main.ScreenPointToRay(Input.mousePosition);
-        if (doesMouseIntersect(mouseWorldRay))
-        {
-            SetOutlineThickness(0.1f);
-            Debug.Log("Selecting " + this);
+        switch (state){
+            case InteractableState.selected:
+                if (Input.GetMouseButtonDown(0))
+                {
+                    OnClick.Invoke(mouseWorldRay.origin);
+                    if (!doesMouseIntersect(mouseWorldRay))
+                    {
+                        state = InteractableState.unselected;
+                        SetOutlineColor(Color.white);
+                    }
+                }
+                break;
+            case InteractableState.unselected:
+                if (doesMouseIntersect(mouseWorldRay))
+                {
+                    SetOutlineThickness(0.1f);
+                }
+                else
+                {
+                    SetOutlineThickness(0);
+                }
+                break;
         }
-        else
-        {
-            SetOutlineThickness(0);
-        }
+        
+        
+    }
+
+    private void OnMouseDown()
+    {
+        state = InteractableState.selected;
+        SetOutlineThickness(0.1f);
+        SetOutlineColor(Color.cyan);
+        
     }
 
     bool doesMouseIntersect(Ray ray)
@@ -44,4 +74,8 @@ public class Interactable : MonoBehaviour
         HighlightMat.SetFloat("_Outline_Thickness", thickness);
     }
 
+    void SetOutlineColor(Color color)
+    {
+        HighlightMat.SetColor("_Outline_Color", color);
+    }
 }
