@@ -33,12 +33,8 @@ public class Interactable : MonoBehaviour
             case InteractableState.selected:
                 if (Input.GetMouseButtonDown(0))
                 {
-                    OnClick.Invoke(mouseWorldRay.origin);
-                    if (!doesMouseIntersect(mouseWorldRay))
-                    {
-                        state = InteractableState.unselected;
-                        SetOutlineColor(Color.white);
-                    }
+                    deselect();
+                    invokeClickEvent();
                 }
                 break;
             case InteractableState.unselected:
@@ -56,12 +52,35 @@ public class Interactable : MonoBehaviour
         
     }
 
+    void invokeClickEvent()
+    {
+        RaycastHit hit;
+        if (Physics.Raycast(mouseWorldRay.origin, mouseWorldRay.direction, out hit, Mathf.Infinity))
+        {
+            Debug.DrawRay(mouseWorldRay.origin, mouseWorldRay.direction * hit.distance, Color.yellow);
+        }
+        OnClick.Invoke(mouseWorldRay.origin + mouseWorldRay.direction * hit.distance);
+    }
+
+    void deselect()
+    {
+        if (!doesMouseIntersect(mouseWorldRay))
+        {
+            state = InteractableState.unselected;
+            SetOutlineColor(Color.white);
+        }
+    }
+
     private void OnMouseDown()
+    {
+        
+    }
+
+    private void OnMouseUp()
     {
         state = InteractableState.selected;
         SetOutlineThickness(0.1f);
         SetOutlineColor(Color.cyan);
-        
     }
 
     bool doesMouseIntersect(Ray ray)
