@@ -63,6 +63,11 @@ https://github.com/IAMColumbia/ApocolypseTrain/assets/76492881/1cb8c250-70e0-4b5
 
 I decided to create an extremely basic economy system with the cinemachine train carts as I knew I was not going to get the full idea with different resources and train lines setup in time. I created a train station trigger, which I originally had in the back, but I moved to front for readability as its kindof the most important part of the game. I added the ability to add trains onto the track. Initially I had hoped to be able to attach them to the same train, but I could not get this to work in a reasonable amount of time so I abandoned the idea. I added basic UI elements and made a fun pop up for when the trains go past the station and the players money increases.
 
+I thought of the game Egg inc as inspiration, as the whole game is economy aside from seeign chickens run accross a road.
+
+![Egg,_Inc _screenshot](https://github.com/chopov1/Prototype4/assets/76492881/0bf2eeb7-26d3-4bad-a9b6-ba9a31aff8e5)
+
+
 https://github.com/IAMColumbia/ApocolypseTrain/assets/76492881/2644183f-0400-4a25-8870-e67d3b5e1492
 
 
