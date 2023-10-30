@@ -1,4 +1,6 @@
-﻿using UnityEditor;
+﻿#if editor
+
+using UnityEditor;
 using UnityEngine;
 
 public class DirectionGizmo : MonoBehaviour
@@ -12,3 +14,5 @@ public class DirectionGizmo : MonoBehaviour
         Handles.DrawBezier(p1, p2, p1, p2, Color.blue, null, thickness);
     }
 }
+
+#endif

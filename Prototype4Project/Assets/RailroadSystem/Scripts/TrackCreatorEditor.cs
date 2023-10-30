@@ -1,5 +1,10 @@
-﻿using UnityEditor;
+﻿
+#if editor
+
+using UnityEditor;
 using UnityEngine;
+
+
 
 [CustomEditor(typeof(TrackCreator), true), CanEditMultipleObjects]
 public class TrackCreatorEditor : Editor
@@ -15,3 +20,5 @@ public class TrackCreatorEditor : Editor
 
     }
 }
+
+#endif
