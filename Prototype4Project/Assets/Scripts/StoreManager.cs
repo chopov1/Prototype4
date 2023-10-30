@@ -22,9 +22,7 @@ public class StoreManager : MonoBehaviour
         speedButtonTxt = speedButtonObj.GetComponent<TMPro.TextMeshProUGUI>();
         cartButtonTxt = cartButtonObj.GetComponent<TMPro.TextMeshProUGUI>();
         valueTxt = valueObj.GetComponent<TMPro.TextMeshProUGUI>();
-        valueTxt.text = "Delivery Value+ " + valueCost + "$"; 
-        speedButtonTxt.text = "Speed+ " + speedCost + "$";
-        cartButtonTxt.text = "Cart+ " + cartCost + "$";
+        UpdateUIValues();
         MoneyPerDelivery = 1;
         Money = startingMoney;
     }
@@ -35,12 +33,21 @@ public class StoreManager : MonoBehaviour
         
     }
 
+    private void UpdateUIValues()
+    {
+        valueTxt.text = "Delivery Value+ " + valueCost + "$";
+        speedButtonTxt.text = "Speed+ " + speedCost + "$";
+        cartButtonTxt.text = "Cart+ " + cartCost + "$";
+    }
+
     public void BuySpeed()
     {
         if(Money >= speedCost)
         {
             CartManager.instance.UpgradeCartSpeed();
             AddMoney(-speedCost);
+            speedCost *= 2;
+            UpdateUIValues();
         }
     }
 
@@ -50,6 +57,8 @@ public class StoreManager : MonoBehaviour
         {
             CartManager.instance.CreateCart();
             AddMoney(-cartCost);
+            cartCost *= 2;
+            UpdateUIValues();
         }
     }
 
@@ -59,6 +68,8 @@ public class StoreManager : MonoBehaviour
         {
             MoneyPerDelivery++;
             AddMoney(-valueCost);
+            valueCost *= 2;
+            UpdateUIValues();
         }
     }
 

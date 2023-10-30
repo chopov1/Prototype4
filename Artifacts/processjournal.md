@@ -74,3 +74,19 @@ https://github.com/IAMColumbia/ApocolypseTrain/assets/76492881/2644183f-0400-4a2
 Here is a video of breaking the game. There are no longer any meaningful choices left to be made because no matter what button you click you will barely see a difference in profits.
 
 https://github.com/IAMColumbia/ApocolypseTrain/assets/76492881/4ce3848d-21da-4f1e-a39f-5d27d02edbe5
+
+## Monday October 30, 2023
+
+I thought the game grew to fast so to keep the game from accelerating too quickly i thought about increasing the price each time you buy something. This worked alot better. 
+
+After having my gf playtest she said she wanted to see these changes
+
+-change color of train
+-background changes like seasons
+-wanted a minigame to do other things while the train goes around
+-wanted to deliver other types of resources
+
+I decided to make a build but have run into these errors having to do with the unitypackage I got from the guy
+
+![Alt text](<Screenshot 2023-10-30 175749.png>)
+
