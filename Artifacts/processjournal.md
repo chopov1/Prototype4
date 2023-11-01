@@ -1,4 +1,4 @@
-I wanted to initially make a point and click car mover as idle management games are always super fun to me, I thought i could build an industry managment type game where you need to select cars and send them to the correct destination in order to make the most money. you have to send them on the correct route, as if your cars collide you lose. I was inspired by games like mini motorways.  
+I wanted to initially make a point and click car mover as idle management games are always super fun to me, I thought i could build an industry managment type game where you need to select cars and send them to the correct destination in order to make the most money. you have to send them on the correct route, as if your cars collide you lose. I was inspired by games like mini motorways and [The King Is Watching](https://gx.games/games/xiihlr/the-king-is-watching/).  
 
 ![Alt text](<Screenshot 2023-10-19 150140.png>)
 
@@ -90,3 +90,10 @@ I decided to make a build but have run into these errors having to do with the u
 
 ![Alt text](<Screenshot 2023-10-30 175749.png>)
 
+I fixed the errors by adding pre-processor definitons in the code that was using Editor namespace as that namespace doesnt exist in builds.
+
+If I were to take this further and build out my idea of a complex economy system, I would add different types of resources. A recource can be spent to improve the production of resources other then itself. I think that is what would make an economy more complex.
+
+I think little minigames to help with another type of resource production would add alot. Maybe you need to click to remove debris that fall on the track, or click to repair a broken track / car.
+
+It would also be sweet to allow the player to customize settings on individual cars, and assign them different resources to collect. Having some kind of market to watch would add stuff to do, so you go in and change what resources your cars collect based on what is worth the most in the market currently.
